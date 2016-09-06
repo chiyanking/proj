@@ -1,0 +1,12 @@
+#ignore those files
+*.iml
+# Logs and databases # 
+###################### 
+*.log 
+*.sql 
+*.sqlite 
+
+#development-tool
+proj/.dea/*
+proj/proj-web/*
+/.gitignore
