@@ -8,5 +8,9 @@
 
 #development-tool
 proj/.dea/*
+<<<<<<< HEAD
 proj/proj-web/*
+=======
+proj/proj-web/src/main/webapp/node_moduls/*
+>>>>>>> ea35214aed76516fbddab38167e85c4d3d644aef
 /.gitignore
