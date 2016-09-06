@@ -7,11 +7,11 @@ import React from "react";
  */
 class NavBar extends React.Component {
     render() {
+        let {url,...other}=this.props;
         return (
-            <div>
-                Hello World!!!<br />
-                欢迎来到菜鸟教程学习！！！
-            </div>
+            <ol>
+                <li><a href={url}>{other.name}</a> </li>
+            </ol>
         );
     }
 }
