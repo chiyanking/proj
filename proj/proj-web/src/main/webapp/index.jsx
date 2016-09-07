@@ -2,13 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import {NavBar} from './component/navbar/NavBar.jsx';
-import MainContent from './component/test/MainContent.jsx';
+import MainContent from './component/test/WebSite.jsx';
 
 let arr = [{name: "企业名称信息", url: "#"}, {name: "设立信息", url: "#"},
     {name: "负责人信息", url: "#"}, {name: "全体合伙人名录及出资情况", url: "#"},
     {name: "委托书信息确认", url: "#"}, {name: "人员认证信息", url: "#"}, {name: "准备材料", url: "@"}];
-
-ReactDOM.render(<App/>, document.getElementById('app'));
 
 
 ReactDOM.render(
