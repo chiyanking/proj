@@ -7,8 +7,10 @@
 *.sqlite 
 
 #development-tool
-/proj/.dea/*
-/proj/proj-web/src/main/webapp/node_moduls/
 /.gitignore
 /proj/proj-web/src/main/webapp/node_modules
 /proj/.idea
+/proj/proj-web/target
+/proj/proj-service/target
+/proj/proj-model/target
+/proj/proj-dao/target
