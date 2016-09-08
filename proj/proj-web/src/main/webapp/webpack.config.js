@@ -45,7 +45,6 @@ var config = {
             }
         ]
     }
-
 }
 module.exports = config;
 //可以使用 npm start 命令来启动服务。--hot 命令会在文件变化后重新载入，这样我们就不需要在代码修改后重新刷新浏览器就能看到变化。

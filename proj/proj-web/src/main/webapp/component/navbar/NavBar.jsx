@@ -1,10 +1,10 @@
 import React from "react";
 import {Navbar} from "react-bootstrap"
 
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap";
-
 import  $ from 'jquery';
+import "bootstrap/dist/css/bootstrap.css";
+import 'bootstrap'
+
 
 /**
  * 这是一个导航栏
