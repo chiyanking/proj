@@ -17,25 +17,27 @@ var config = {
     /*定义了对模块的处理逻辑，这里可以用loaders定义了一系列的加载器，
      以及一些正则。当需要加载的文件匹配test的正则时，就会调用后面的loader对文件进行处理，这正是webpack强大的原因。*/
     module: {
-        loaders: [{
+        loaders: [
+            {test: /\.css$/, loader: "style!css"},
+            {
+                loader: 'babel',
+                // Skip any files outside of your project's `src` directory
+                // include: [
+                //     path.resolve(__dirname, "src"),
+                // ],
 
-            loader: 'babel',
-            // Skip any files outside of your project's `src` directory
-            // include: [
-            //     path.resolve(__dirname, "src"),
-            // ],
-
-            // Only run `.js` and `.jsx` files through Babel
-            test: /\.jsx?$/,
+                // Only run `.js` and `.jsx` files through Babel
+                test: /\.jsx?$/,
 
 
-            exclude: /node_modules/,
+                exclude: /node_modules/,
 
-            //  es2015 就是ES6新特性   stage-0  就是es7 那些新特性
-            query: {
-                presets: ['es2015', 'stage-0', 'react']
+                //  es2015 就是ES6新特性   stage-0  就是es7 那些新特性
+                query: {
+                    presets: ['es2015', 'stage-0', 'react']
+                }
             }
-        }]
+        ]
     }
 
 }

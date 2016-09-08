@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 
 import {NavBar} from './component/navbar/NavBar.jsx';
 import MainContent from './component/test/WebSite.jsx';
+import MyButton from './component/test/MyButton.jsx';
 
 let arr = [{name: "企业名称信息", url: "#"}, {name: "设立信息", url: "#"},
     {name: "负责人信息", url: "#"}, {name: "全体合伙人名录及出资情况", url: "#"},
@@ -28,6 +29,10 @@ ReactDOM.render(
         }
     </div>,
     document.getElementById('example')
+);
+
+ReactDOM.render(<MyButton />
+    , document.getElementById("container")
 );
 
 
