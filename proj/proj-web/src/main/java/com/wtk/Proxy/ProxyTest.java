@@ -1,4 +1,4 @@
-package Proxy;
+package main.java.com.wtk.Proxy;
 
 public class ProxyTest {
 

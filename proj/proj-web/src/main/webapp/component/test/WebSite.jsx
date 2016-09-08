@@ -4,8 +4,7 @@ class MainContent extends React.Component {
     render() {
         return (
             <div id="zhang">
-                <Name {...this.props} name="新添加属性"/>
-                <Link {...this.props} site="www.tsign.cn"/>
+                 <Link {...this.props} site="www.tsign.cn"/>
             </div>
         );
     }

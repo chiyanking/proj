@@ -8,7 +8,7 @@ var config = {
         filename: 'index.js',
     },
 
-    //设置服务器端口号为7777  inline：不输出文件  保存在 内存中index.js
+    //设置服务器端口号为7777  inline：web-socket  保存在 内存中index.js
     devServer: {
         inline: true,
         port: 7777
@@ -19,6 +19,12 @@ var config = {
     module: {
         loaders: [
             {test: /\.css$/, loader: "style!css"},
+            {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"},
+            {test: /\.(woff|woff2)$/, loader: "url?prefix=font/&limit=5000"},
+            {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream"},
+            {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml"},
+            // Bootstrap 3
+            {test: /bootstrap[\\\/]js[\\\/]/, loader: "imports?jQuery=jquery"},
             {
                 loader: 'babel',
                 // Skip any files outside of your project's `src` directory
@@ -43,3 +49,4 @@ var config = {
 }
 module.exports = config;
 //可以使用 npm start 命令来启动服务。--hot 命令会在文件变化后重新载入，这样我们就不需要在代码修改后重新刷新浏览器就能看到变化。
+//npm install babel-preset-stage-0 --save-dev

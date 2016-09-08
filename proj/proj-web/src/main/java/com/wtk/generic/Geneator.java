@@ -1,4 +1,4 @@
-package generic;
+package main.java.com.wtk.generic;
 
 /**
  * Created by Administrator on 2016/6/16.
@@ -10,7 +10,9 @@ class Coffee{
     private static long counter=0;
     private final long id=counter++;
     public String toString(){
+
         return getClass().getSimpleName()+"    "+id;
+
     }
 }
 class Latte extends  Coffee{}

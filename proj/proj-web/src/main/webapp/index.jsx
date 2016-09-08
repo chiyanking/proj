@@ -36,29 +36,6 @@ ReactDOM.render(<MyButton />
 );
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
 
 //React 推荐使用内联样式。我们可以使用 camelCase 语法来设置内联样式. React 会在指定元素数字后自动添加 px 。以下实例演示了为 h1 元素添加 myStyle 内联样式：
@@ -124,6 +101,24 @@ ReactDOM.render(<MyButton />
  readOnly rel required role rows rowSpan sandbox scope scrolling seamless
  selected shape size sizes span spellCheck src srcDoc srcSet start step style
  tabIndex target title type useMap value width wmode
+
+
+ 组件的生命周期
+ Mounting：已插入真实 DOM
+ Updating：正在被重新渲染
+ Unmounting：已移出真实 DOM
+
+ 共计五种处理函数：
+ componentWillMount()
+ componentDidMount()
+ componentWillUpdate(object nextProps, object nextState)
+ componentDidUpdate(object prevProps, object prevState)
+ componentWillUnmount()
+
+ 用此属性来获取真实dom的操作
+ this.refs.[refName]
+
+
 
 
  */
