@@ -1,11 +1,18 @@
+'use strict';
+
+
 import React from "react";
 import {Button}  from 'react-bootstrap';
 
+
 class Mybutton extends React.Component {
     render() {
-        return (
-            <Button>bootstrap按钮</Button>
-        );
+        return (<div></div>);
+    }
+
+    onClickHand = function () {
+        console.log(this.props);
+        console.log(this.state);
     }
 }
 

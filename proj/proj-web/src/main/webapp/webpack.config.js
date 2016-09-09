@@ -1,5 +1,5 @@
 var config = {
-    // 制定打包的入口文件  main.js
+    // 制定打包的入口文件 index.jsx
     entry: './index.jsx',
 
     //配置打包结果 ，path定义了输出的文件夹，filename则定义了打包结果文件的名称
@@ -18,7 +18,8 @@ var config = {
      以及一些正则。当需要加载的文件匹配test的正则时，就会调用后面的loader对文件进行处理，这正是webpack强大的原因。*/
     module: {
         loaders: [
-            {test: /\.css$/, loader: "style!css"},
+            // {test: /\.css$/, loader: "style!css"},
+            {test: /(\.css$)|(\.less$)/, loader: "style!css!less"},
             {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file"},
             {test: /\.(woff|woff2)$/, loader: "url?prefix=font/&limit=5000"},
             {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream"},
