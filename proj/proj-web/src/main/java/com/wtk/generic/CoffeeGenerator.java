@@ -1,4 +1,4 @@
-package generic;
+package com.wtk.generic;
 
 import java.util.Collection;
 import java.util.Iterator;

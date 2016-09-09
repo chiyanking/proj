@@ -6,6 +6,7 @@ import MainContent from './component/test/WebSite.jsx';
 import MyButton from './component/test/MyButton.jsx';
 
 import {BLAffix} from "./component/navbar/BLAffix.jsx";
+import {BLTab} from "./component/navbar/BLTab.jsx";
 
 let arr = [{name: "企业名称信息", url: "#"}, {name: "设立信息", url: "#"},
     {name: "负责人信息", url: "#"}, {name: "全体合伙人名录及出资情况", url: "#"},
@@ -38,13 +39,18 @@ ReactDOM.render(<BLAffix />
 );
 
 
-//ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
+ReactDOM.render(<BLTab />
+    , document.getElementById("affix")
+);
+/**
 
-//React 推荐使用内联样式。我们可以使用 camelCase 语法来设置内联样式. React 会在指定元素数字后自动添加 px 。以下实例演示了为 h1 元素添加 myStyle 内联样式：
-//注释需要写在花括号中，实例如下：
+ ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。
+
+ React 推荐使用内联样式。我们可以使用 camelCase 语法来设置内联样式. React 会在指定元素数字后自动添加 px 。以下实例演示了为 h1 元素添加 myStyle 内联样式：
+ 注释需要写在花括号中，实例如下：
 
 
-/*
+
  数组
  JSX 允许在模板中插入数组，数组会自动展开所有成员：
  var arr = [
@@ -54,10 +60,10 @@ ReactDOM.render(<BLAffix />
  ReactDOM.render(
  <div>{arr}</div>,
  document.getElementById('example')
- );*/
+ );
 
 
-/*
+
 
  1,ReactComponent render()
  render() 函数应该是纯粹的，也就是说该函数不修改组件 state，每次调用都返回相同的结果，
@@ -65,7 +71,7 @@ ReactDOM.render(<BLAffix />
  如果需要和浏览器交互，在 componentDidMount() 中或者其它生命周期方法中做这件事。
  保持 render() 纯粹，可以使服务器端渲染更加切实可行，也使组件更容易被理解。
 
- 1,componentDidMount
+ 2,componentDidMount
  在初始化渲染执行之后立刻调用一次，
  仅客户端有效（服务器端不会调用）。
  在生命周期中的这个时间点，组件拥有一个 DOM 展现，你可以通过 this.getDOMNode() 来获取相应 DOM 节点。
@@ -119,8 +125,6 @@ ReactDOM.render(<BLAffix />
 
  用此属性来获取真实dom的操作
  this.refs.[refName]
-
-
 
 
  */

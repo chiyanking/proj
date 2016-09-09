@@ -15,17 +15,6 @@ import  {Breadcrumb, Button, Well, Collapse, DropdownButton, MenuItem, ButtonToo
  * 层次结构为
  *
  */
-// const menu_hear = {
-//     "height": "45",
-//     "line-height": 45,
-//     "background-color": "#e9e9e9",
-//     "border-top": "1px solid #efefef",
-//     "border-bottom": "1px solid #e1e1e1",
-//     "padding": "0",
-//     "font-size": "14",
-//     "font-weight": "normal",
-//     "text-align": "center"
-// };
 
 class BLAffix extends React.Component {
 
@@ -34,7 +23,7 @@ class BLAffix extends React.Component {
             <div>
                 <div className="sidebar-menu">
                     <p href="#recharge" className="nav-header menu-first collapsed" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-user"></i>充值
+                        充值&nbsp;&nbsp;<i className="glyphicon glyphicon-shopping-cart glyphicon-adjust"></i>
                     </p>
                     <ul id="recharge" className="nav nav-list collapse menu-second">
                         <li><a href="#"><i class="icon-edit"></i>充值一</a></li>

@@ -1,4 +1,4 @@
-package main.java.com.wtk.generic;
+package com.wtk.generic;
 
 /**
  * Created by Administrator on 2016/6/17.

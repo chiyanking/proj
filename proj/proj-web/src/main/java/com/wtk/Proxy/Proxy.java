@@ -1,14 +1,14 @@
-package main.java.com.wtk.Proxy;
+package com.wtk.Proxy;
 
 public class Proxy implements Subject {
 
-	RealSubject real;
-	
+    RealSubject real;
 
-	public void Request() {
-		if(real==null){
-			real=new RealSubject();
-		}
-		real.Request();
-	}
+
+    public void Request() {
+        if (real == null) {
+            real = new RealSubject();
+        }
+        real.Request();
+    }
 }
