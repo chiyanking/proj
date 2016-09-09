@@ -17,8 +17,20 @@ import  {Breadcrumb, Button, Well, Collapse, DropdownButton, MenuItem, ButtonToo
  */
 
 class BLAffix extends React.Component {
+    static defaultProps = {
+        operateContent: "#main-content"
+    };  // 注意这里有分号
+    static propTypes = {
+        operateContent: React.PropTypes.string.isRequired
+    };  // 注意这里有分号
+
+    constructor(...args) {
+        super(...args);
+
+    }
 
     render() {
+        BLAffix.operateContent = this.props.operateContent;
         return (
             <div>
                 <div className="sidebar-menu">
@@ -26,23 +38,23 @@ class BLAffix extends React.Component {
                         充值&nbsp;&nbsp;<i className="glyphicon glyphicon-shopping-cart glyphicon-adjust"></i>
                     </p>
                     <ul id="recharge" className="nav nav-list collapse menu-second">
-                        <li><a href="#"><i class="icon-edit"></i>充值一</a></li>
+                        <li><a href="#"><i className="icon-edit"></i>充值一</a></li>
                     </ul>
                     <p href="#order" className="nav-header menu-first collapsed" data-toggle="collapse">
-                        <i class="glyphicon glyphicon-user"></i>订单查询
+                        <i className="glyphicon glyphicon-user"></i>订单查询
                     </p>
                     <ul id="order" className="nav nav-list collapse menu-second">
-                        <li><a href="#"><i class="icon-edit"></i>订单一</a></li>
-                        <li><a href="#"><i class="icon-edit"></i>订单二</a></li>
-                        <li><a href="#"><i class="icon-edit"></i>订单三</a></li>
-                        <li><a href="#"><i class="icon-edit"></i>订单四</a></li>
+                        <li><a href="#"><i className="icon-edit"></i>订单一</a></li>
+                        <li><a href="#"><i className="icon-edit"></i>订单二</a></li>
+                        <li><a href="#"><i className="icon-edit"></i>订单三</a></li>
+                        <li><a href="#"><i className="icon-edit"></i>订单四</a></li>
                     </ul>
                     <p href="#consume" className="nav-header menu-first collapsed" data-toggle="collapse">
                         <i></i>消费查询
                     </p>
                     <ul id="consume" className="nav nav-list collapse menu-second">
-                        <li><a href="#"><i class="icon-edit"></i>查询消费总览</a></li>
-                        <li><a style={{padding: 0}} href="#"><i class="icon-edit"></i>查询消费明细</a></li>
+                        <li><a href="#"><i className="icon-edit"></i>查询消费总览</a></li>
+                        <li><a style={{padding: 0}} href="#"><i className="icon-edit"></i>查询消费明细</a></li>
                     </ul>
                 </div>
             </div>
@@ -51,7 +63,7 @@ class BLAffix extends React.Component {
 
     componentDidMount() {
         $(".menu-second").click(function (e) {
-            $("#main-content").html($(e.target).text());
+            $(BLAffix.operateContent).html($(e.target).text());
         });
     }
 }

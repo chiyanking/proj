@@ -34,13 +34,13 @@ ReactDOM.render(
     document.getElementById('example')
 );
 
-ReactDOM.render(<BLAffix />
+ReactDOM.render(<BLAffix/>
     , document.getElementById("affix")
 );
 
 
 ReactDOM.render(<BLTab />
-    , document.getElementById("affix")
+    , document.getElementById("tab")
 );
 /**
 
@@ -125,6 +125,11 @@ ReactDOM.render(<BLTab />
 
  用此属性来获取真实dom的操作
  this.refs.[refName]
+ this.props.children 从ReactDom.render();
 
+
+ Promise，字面上可以理解为“承诺”，就是说A调用B，B返回一个“承诺”给A，
+ 然后A就可以在写计划的时候这么写：当B返回结果给我的时候，A执行方案S1，反之如果B因为什么原因没有给到A想要的结果，那么A执行应急方案S2
+ 这样一来，所有的潜在风险都在A的可控范围之内了。
 
  */
