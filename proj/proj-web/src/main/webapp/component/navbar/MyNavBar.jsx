@@ -8,6 +8,11 @@ import  {Breadcrumb, Button, Well, Collapse, DropdownButton, MenuItem, ButtonToo
  */
 class MyNavBar extends React.Component {
 
+    constructor(...args) {
+        super(...args);
+        this.state = {};
+    }
+
     render() {
         const name_urls = this.props.data;
         let array = new Array();
@@ -23,9 +28,8 @@ class MyNavBar extends React.Component {
         );
     }
 
-    constructor(...args) {
-        super(...args);
-        this.state = {};
+
+    componentDidMount() {
     }
 }
 export {MyNavBar};

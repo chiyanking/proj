@@ -1,20 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import {NavBar} from './component/navbar/NavBar.jsx';
+
 import MainContent from './component/test/WebSite.jsx';
-import MyButton from './component/test/MyButton.jsx';
 
 import {BLAffix} from "./component/navbar/BLAffix.jsx";
 import {BLTab} from "./component/navbar/BLTab.jsx";
+import {MyNavBar} from "./component/navbar/MyNavBar.jsx";
+
 
 let arr = [{name: "企业名称信息", url: "#"}, {name: "设立信息", url: "#"},
     {name: "负责人信息", url: "#"}, {name: "全体合伙人名录及出资情况", url: "#"},
-    {name: "委托书信息确认", url: "#"}, {name: "人员认证信息", url: "#"}, {name: "准备材料", url: "@"}];
+    {name: "委托书信息确认", url: "#"}, {name: "人员认证信息", url: "#"}, {name: "准备材料", url: "#"}];
 
 
 ReactDOM.render(
-    <NavBar data={arr}/>,
+    <MyNavBar data={arr}/>,
     document.getElementById('content'));
 
 
@@ -34,7 +35,10 @@ ReactDOM.render(
     document.getElementById('example')
 );
 
-ReactDOM.render(<BLAffix/>
+let data = [["一级菜单一", arr], ["一级菜单二", arr]];
+data = new Map(data);
+
+ReactDOM.render(<BLAffix data={data}/>
     , document.getElementById("affix")
 );
 

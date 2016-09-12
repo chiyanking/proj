@@ -16,6 +16,7 @@ import  {Tabs, Tab} from "react-bootstrap";
  */
 class BLTab extends React.Component {
 
+
     constructor(...args) {
         super(...args);
         this.state = {
@@ -36,6 +37,7 @@ class BLTab extends React.Component {
             </Tabs>
         );
     }
+
 
     handleChange(event) {
         this.setState({value: event.target.value});
