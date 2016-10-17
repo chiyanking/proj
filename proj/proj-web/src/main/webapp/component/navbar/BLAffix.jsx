@@ -40,7 +40,6 @@ class BLAffix extends React.Component {
 
     constructor(...args) {
         super(...args);
-
     }
 
     render() {

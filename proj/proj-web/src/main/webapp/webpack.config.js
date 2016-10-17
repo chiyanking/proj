@@ -2,12 +2,13 @@ var webpack = require('webpack')
 var baseDir = "./src/main/webapp";
 var config = {
     // 制定打包的入口文件 index.jsx
-    entry: './index.jsx',
+    entry: {index: './index.jsx', test: "./test.jsx"},
 
     //配置打包结果 ，path定义了输出的文件夹，filename则定义了打包结果文件的名称
     output: {
-        path: './',
-        filename: 'index.js',
+        path: './bundles',
+        filename: '[name].bundle.js',
+        publicPath: './bundles/'
     },
 
     //设置服务器端口号为7777  inline：web-socket  -hot保存在内存中 index.js
