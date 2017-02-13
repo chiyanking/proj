@@ -1,51 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-
-import MainContent from './component/test/WebSite.jsx';
-
-import {BLAffix} from "./component/navbar/BLAffix.jsx";
-import {BLTab} from "./component/navbar/BLTab.jsx";
-import {MyNavBar} from "./component/navbar/MyNavBar.jsx";
+import "./component/navbar/BLAffix.less";
 
 
-let arr = [{name: "企业名称信息", url: "#"}, {name: "设立信息", url: "#"},
-    {name: "负责人信息", url: "#"}, {name: "全体合伙人名录及出资情况", url: "#"},
-    {name: "委托书信息确认", url: "#"}, {name: "人员认证信息", url: "#"}, {name: "准备材料", url: "#"}];
-
-
-ReactDOM.render(
-    <MyNavBar data={arr}/>,
-    document.getElementById('content'));
-
-
-ReactDOM.render(
-    <MainContent url="www.baidu.com" name="zhangsan" age="lisi" arr={arr}/>,
-    document.getElementById('website'));
-
-
-var names = ['Alice', 'Emily', 'Kate', '李四'];
-
-ReactDOM.render(
-    <div>
-        {
-            names.map(name => <div key={name}>Hello, {name}!</div>)
-        }
-    </div>,
-    document.getElementById('example')
-);
-
-let data = [["一级菜单一", arr], ["一级菜单二", arr]];
-data = new Map(data);
-
-ReactDOM.render(<BLAffix data={data}/>
-    , document.getElementById("affix")
-);
-
-
-ReactDOM.render(<BLTab />
-    , document.getElementById("tab")
-);
+let mountNode = document.getElementById("affix");
+ReactDOM.render(<p>测试系统兼容性</p>, mountNode);
 /**
 
  ReactDOM.render 是 React 的最基本方法，用于将模板转为 HTML 语言，并插入指定的 DOM 节点。

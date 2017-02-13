@@ -52,16 +52,13 @@ class BLAffix extends React.Component {
             let targetKeyId = "#" + keyId;
             i++;
             p_ul.push(
-                <div>
-                    <p href={targetKeyId} className="nav-header menu-first collapsed" data-toggle="collapse">{key}</p>
-                    <ul id={keyId} className="nav nav-list collapse menu-second">
-                        {
-                            value.map((value)=> {
-                                return ( <li><a href={value.url}>{value.name}</a></li>)
-                            })
-                        }
-                    </ul>
-                </div>
+                <ul id={keyId} key={keyId} className="nav nav-list collapse menu-second">
+                    {
+                        value.map((value)=> {
+                            return ( <li key={value.url}><a href={value.url}>{value.name}</a></li>)
+                        })
+                    }
+                </ul>
             );
 
         }
