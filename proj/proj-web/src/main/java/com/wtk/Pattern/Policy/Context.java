@@ -1,4 +1,4 @@
-package com.wtk.Pattern.Policy;
+package com.wtk.Pattern.policy;
 
 /**
  * Created by Macus on 2017/2/21.

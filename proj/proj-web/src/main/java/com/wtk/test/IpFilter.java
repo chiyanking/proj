@@ -37,13 +37,13 @@ public class IpFilter  {
 //
 //		if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 //
-//		ip = request.getHeader("Proxy-Client-IP");
+//		ip = request.getHeader("proxy-Client-IP");
 //
 //		}
 //
 //		if(ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
 //
-//		ip = request.getHeader("WL-Proxy-Client-IP");
+//		ip = request.getHeader("WL-proxy-Client-IP");
 //
 //		}
 //
