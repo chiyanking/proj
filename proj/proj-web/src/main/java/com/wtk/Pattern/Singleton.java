@@ -1,4 +1,4 @@
-package com.wtk.Pattern;
+package com.wtk.pattern;
 
 /**
  * Created by Macus on 2017/2/17.

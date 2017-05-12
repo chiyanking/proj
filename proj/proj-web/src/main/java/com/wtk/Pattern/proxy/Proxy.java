@@ -1,4 +1,4 @@
-package com.wtk.Pattern.proxy;
+package com.wtk.pattern.proxy;
 
 /**
  * Created by Administrator on 2017/2/22.

@@ -16,7 +16,7 @@ public class DeepClone {
 }
 
 class Person implements Cloneable, Serializable {
-    public String name = "�ӑB";
+    public String name = "名称";
     public int age;
 
     public Person clone() {
