@@ -1,0 +1,208 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>证书</title>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+</head>
+<body>
+<canvas id="canv"></canvas>
+<img id="img" src=""/>
+<img id="userImage"/>
+<input id="userInput" type="file">
+</body>
+<script>
+
+    function createImage(mountNode, backgroundSrc, title, author, userImageSrc) {
+        var background = document.getElementById("canv");
+        background.id = "image";
+        var ctx = background.getContext('2d');
+        var image = new Image();
+        image.src = backgroundSrc;
+        var iscertificate = backgroundSrc.indexOf("certificate.png") > 0;
+        image.onload = function () {
+            background.width = image.width;
+            background.height = image.height;
+            ctx.drawImage(image, 0, 0);
+            var userImage = new Image();
+            userImage.src = userImageSrc;
+            userImage.onload = function () {
+                var fontSize = 20, start_width = 116, start_height = 406, fontLine = fontSize * 1.8,
+                    imageMaxWidth = 214, imageMaxHeight = 208, image_x = 414, image_y = start_height;
+                if (!iscertificate) {
+                    fontSize = 20;
+                    start_width = 116;
+                    start_height = 406;
+                    fontLine = fontSize * 1.8;
+                    imageMaxWidth = 214;
+                    imageMaxHeight = 208;
+                    image_x = 414;
+                    image_y = start_height;
+                }
+                ctx.font = fontSize + 'px serif';
+                //专利时间生成
+                var createDate = new Date(), dateStr = createDate.format("yyyy年MM月dd日");
+                start_height = draw_long_text('ECI：{}'.replace("{}", randomECI()), fontSize, ctx, start_width, start_height, 18);
+                start_height = draw_long_text('作品名称：{}'.replace("{}", title), fontSize, ctx, start_width, start_height += fontLine, 15);
+                start_height = draw_long_text('著作权人：{}'.replace("{}", author), fontSize, ctx, start_width, start_height += fontLine, 18);
+                start_height = draw_long_text('创作完成时间：{}'.replace("{}", dateStr), fontSize, ctx, start_width, start_height += fontLine, 18);
+                start_height = draw_long_text('发证时间：{}'.replace("{}", dateStr), fontSize, ctx, start_width, start_height += fontLine, 18);
+
+                //todo  图片大小控制问题未处理这里只是简单的设置了一下大小
+                var imageSize = getImageSize(userImage, imageMaxWidth, imageMaxHeight);
+
+                //重计算起始画的位置
+                if (imageSize.width < imageSize.height) {
+                    image_x += (imageMaxWidth - imageSize.width) / 2;
+                }
+                //添加替换图片
+
+
+                var canvas_w = background.width;
+                var canvas_h = background.height;
+
+                ctx.drawImage(userImage, image_x, image_y, imageSize.width, imageSize.height);
+
+                ctx.fillText(".", 0, 0);
+                ctx.fillText(".", 10, 10);
+                ctx.fillText(".", 20, 20);
+                ctx.fillText(".", 30, 30);
+                ctx.save(); //保存状态
+                ctx.translate(canvas_w / 2, canvas_h / 2); //设置画布上的(0,0)位置，也就是旋转的中心点
+                ctx.rotate(90 * Math.PI / 180); //把画布旋转90度
+                ctx.fillText(".", 0, 0);
+                ctx.fillText(".", 10, 10);
+                ctx.fillText(".", 20, 20);
+                ctx.fillText(".", 30, 30);
+                ctx.drawImage(image, 0, 0);
+
+
+                ctx.drawImage(userImage, image_y - canvas_h / 2, -(image_x + imageSize.width - canvas_w / 2), imageSize.height, imageSize.width);
+
+
+                ctx.restore(); //恢复状态
+
+
+                //将图片挂在到选中的图片上
+                mountNode.src = background.toDataURL("image/png");
+            }
+        };
+
+        /**
+         *  字符串填充方法 自动换行
+         * @param longtext
+         * @param cxt
+         * @param begin_width
+         * @param begin_height
+         * @returns 返回行所在的高度
+         */
+        function draw_long_text(longtext, fontSize, cxt, begin_width, begin_height, line_max_length) {
+            var text = "";
+            var count = 0, allCounter = 0;
+            var begin_width = begin_width;
+            var begin_height = begin_height;
+            var stringLenght = longtext.length;
+            var newtext = longtext.split("");
+            var context = cxt;
+            context.textAlign = 'left';
+            for (var i = 0; i <= stringLenght; i++) {
+                if (count == line_max_length && allCounter != stringLenght) {
+                    context.fillText(text, begin_width, begin_height);
+                    begin_height = begin_height + fontSize * 1.5;
+                    text = "";
+                    count = 0;
+                }
+                if (i == stringLenght) {
+                    context.fillText(text, begin_width, begin_height);
+                }
+                text = text + newtext[0];
+                count++;
+                allCounter++;
+                newtext.shift();
+            }
+            return begin_height;
+        }
+
+        function randomECI() {
+            var date = new Date();
+            return date.format("yyyy MM dd hh mm ss").replace(new RegExp(/[ ]/g), "");
+        }
+
+        function getImageSize(userImage, max_width, max_height) {
+            var width, height;
+            if (userImage.width < userImage.height) {
+                width = userImage.width / (userImage.height / max_height);
+                height = max_height;
+            } else {
+                width = max_width;
+                height = userImage.height / (userImage.width / max_width);
+            }
+            userImage.width = width;
+            userImage.height = height;
+            return userImage;
+        }
+
+        // 对Date的扩展，将 Date 转化为指定格式的String
+        // 月(M)、日(d)、小时(h)、分(m)、秒(s)、季度(q) 可以用 1-2 个占位符，
+        // 年(y)可以用 1-4 个占位符，毫秒(S)只能用 1 个占位符(是 1-3 位的数字)
+        // 例子：
+        // (new Date()).Format("yyyy-MM-dd hh:mm:ss.S") ==> 2006-07-02 08:09:04.423
+        // (new Date()).Format("yyyy-M-d h:m:s.S")      ==> 2006-7-2 8:9:4.18
+        Date.prototype.format = function (fmt) { //author: meizz
+            var o = {
+                "M+": this.getMonth() + 1,                 //月份
+                "d+": this.getDate(),                    //日
+                "h+": this.getHours(),                   //小时
+                "m+": this.getMinutes(),                 //分
+                "s+": this.getSeconds(),                 //秒
+                "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                "S": this.getMilliseconds()             //毫秒
+            };
+            if (/(y+)/.test(fmt))
+                fmt = fmt.replace(RegExp.$1, (this.getFullYear() + "").substr(4 - RegExp.$1.length));
+            for (var k in o)
+                if (new RegExp("(" + k + ")").test(fmt))
+                    fmt = fmt.replace(RegExp.$1, (RegExp.$1.length == 1) ? (o[k]) : (("00" + o[k]).substr(("" + o[k]).length)));
+            return fmt;
+        };
+    }
+
+    createImage(document.getElementById("img"), "./certificate.png", "关于手机触屏自动识别指纹专专专专", "张三", "./2.png");
+
+
+    var input = document.getElementById("userInput"), userImage = document.getElementById("userImage");
+    input.onchange = function (event) {
+        var files = event.target.files, file;
+        if (files && files.length > 0) {
+            file = files[0];
+            processImage(file);
+        }
+    };
+
+    function processImage(file) {
+        if (window.FileReader) {//支持chrome IE10
+            var reader = new FileReader();
+            reader.onload = function (event) {
+                userImage.src = event.target.result;
+                createImage(document.getElementById("img"), "./certificate.png", "关于手机触屏自动识别指纹专", "张三", userImage.src);
+            };
+            reader.readAsDataURL(file);
+        } else if (typeof window.ActiveXObject != 'undefined') {//支持IE 7 8 9 10
+            var xmlDoc;
+            xmlDoc = new ActiveXObject("Microsoft.XMLDOM");
+            xmlDoc.async = false;
+            xmlDoc.load(input.value);
+            //todo 图片载入后未处理
+        } else if (document.implementation && document.implementation.createDocument) {//支持FF
+            var xmlDoc;
+            xmlDoc = document.implementation.createDocument("", "", null);
+            xmlDoc.async = false;
+            xmlDoc.load(input.value);
+            //todo 图片载入后未处理
+        } else {
+            alert("无法读取用户文件读取出错！");
+        }
+    }
+
+
+</script>
+</html>

@@ -1,0 +1,65 @@
+﻿<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" media="all" href="css/reset.css"/> <!-- reset css -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+
+    <style>
+        body {
+            background-color: ivory;
+        }
+
+        canvas {
+            border: 1px solid red;
+        }
+    </style>
+
+    <script>
+        $(function () {
+
+            var canvas = document.getElementById("canvas");
+            var ctx = canvas.getContext("2d");
+
+            var angleInDegrees = 0;
+
+            var image = document.createElement("img");
+            image.onload = function () {
+                canvas.width = image.width;
+                canvas.height = image.height;
+
+                ctx.drawImage(image, canvas.width / 2 - image.width / 2, canvas.height / 2 - image.width / 2);
+            }
+            image.src = "1.png";
+
+            $("#clockwise").click(function () {
+                angleInDegrees += 30;
+                drawRotated(angleInDegrees);
+            });
+
+            $("#counterclockwise").click(function () {
+                angleInDegrees -= 30;
+                drawRotated(angleInDegrees);
+            });
+
+            function drawRotated(degrees) {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                ctx.save();
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+                ctx.rotate(degrees * Math.PI / 180);
+                ctx.drawImage(image, -image.width / 2, -image.width / 2);
+                ctx.restore();
+            }
+
+
+        }); // end $(function(){});
+    </script>
+
+</head>
+
+<body>
+<canvas id="canvas"></canvas>
+<br>
+<button id="clockwise">Rotate right</button>
+<button id="counterclockwise">Rotate left</button>
+</body>
+</html>

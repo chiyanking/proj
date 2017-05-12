@@ -12,4 +12,11 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
+    <dependencies>
+        <dependency>
+            <groupId>org.wtk</groupId>
+            <artifactId>proj-model</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+    </dependencies>
 </project>
