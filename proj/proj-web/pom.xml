@@ -7,15 +7,15 @@
     <name>proj-web</name>
     <url>http://maven.apache.org</url>
     <parent>
-        <groupId>org.wtk</groupId>
-        <artifactId>proj</artifactId>
+        <groupId>com.wtk</groupId>
+        <artifactId>proj-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
 
     <dependencies>
         <dependency>
-            <groupId>org.wtk</groupId>
+            <groupId>com.wtk</groupId>
             <artifactId>proj-service</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>

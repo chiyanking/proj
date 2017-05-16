@@ -2,12 +2,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
     <!-- 父项目的坐标:如果项目中没有规定某个元素的值，那么父项目中的对应值即为项目的默认值。 坐标包括group ID,artifact ID和 version. -->
-    <modelVersion>4.0.0</modelVersion><!--声明项目描述符遵循哪一个POM模型版本。模型本身的版本很少改变，虽然如此，但它仍然是必不可少的，这是为了当Maven引入了新的特性或者其他模型变更的时候，确保稳定性。 -->
+    <modelVersion>4.0.0
+    </modelVersion><!--声明项目描述符遵循哪一个POM模型版本。模型本身的版本很少改变，虽然如此，但它仍然是必不可少的，这是为了当Maven引入了新的特性或者其他模型变更的时候，确保稳定性。 -->
     <groupId>com.wtk</groupId><!--项目的全球唯一标识符，通常使用全限定的包名区分该项目和其他项目。并且构建时生成的路径也是由此生成， 如com.mycompany.app生成的相对路径为：/com/mycompany/app -->
     <artifactId>proj-parent</artifactId><!--被继承的父项目的构件标识符 -->
     <packaging>pom</packaging><!--项目产生的构件类型，例如jar、war、ear、pom。插件可以创建他们自己的构件类型，所以前面列的不是全部构件类型 -->
-    <version>1.0.0-SNAPSHOT</version>              <!--项目当前版本，格式为:主版本.次版本.增量版本-限定版本号 -->
-    <name>wkt-proj</name>                          <!--项目的名称, Maven产生的文档用 -->
+    <version>1.0-SNAPSHOT</version>              <!--项目当前版本，格式为:主版本.次版本.增量版本-限定版本号 -->
+    <name>proj</name>                          <!--项目的名称, Maven产生的文档用 -->
     <url>http://maven.apache.org</url>              <!--项目主页的URL, Maven产生的文档用 -->
     <description>proj项目文档</description>
 
@@ -95,7 +96,8 @@
             <!-- ③.spring web相关依赖 -->
             <dependency>
                 <groupId>org.springframework</groupId>
-                <artifactId>spring-web</artifactId>        <!--包含Web应用开发时，用到Spring框架时所需的核心类，包括自动载入 WebApplicationContext 特性的类、Struts与JSF集成类、文件上传的支持类、Filter类和大量工具辅助类 -->
+                <artifactId>spring-web
+                </artifactId>        <!--包含Web应用开发时，用到Spring框架时所需的核心类，包括自动载入 WebApplicationContext 特性的类、Struts与JSF集成类、文件上传的支持类、Filter类和大量工具辅助类 -->
                 <version>${spring.version}</version>
             </dependency>
             <dependency>
@@ -182,8 +184,7 @@
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
-                <artifactId>druid
-                </artifactId>               <!-- connection pool:数据库连接池,用来在spingMVC-mybatis.xml中配置数据库 -->
+                <artifactId>druid</artifactId><!-- connection pool:数据库连接池,用来在spingMVC-mybatis.xml中配置数据库 -->
                 <version>${druid.version}</version>
             </dependency>
             <!-- MYSQL 数据库相关依赖 end -->
