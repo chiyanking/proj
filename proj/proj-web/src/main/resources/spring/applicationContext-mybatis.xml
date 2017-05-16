@@ -68,12 +68,12 @@
         <!-- 配置数据源 -->
         <property name="dataSource" ref="dataSource"/>
         <!-- 配置Mybatis配置文件 -->
-        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:config/mybatis-config.xml"/>
         <!-- 配置别名包路径 -->
         <property name="typeAliasesPackage" value="com.pussinboots.morning.cms.modules"/>
         <!-- 配置Mapper扫描路径（IDEA系列编辑器需要特别注意，因为IDEA的设置问题，src中的xml文件是不会被编译的，如果放在src中可能会报错，解决办法详见
             常用问题-Invalid bound statement (not found) 错误如何解决?） -->
-        <property name="mapperLocations" value="classpath:/mybatis/**/*Mapper.xml"/>
+        <property name="mapperLocations" value="classpath:/mybatis/**/*.xml"/>
         <!-- 插件配置项 -->
         <property name="plugins">
             <array>

@@ -7,7 +7,7 @@ public class UserEntity {
 
     Integer id;
 
-    String
+    String code;
 
 
     String name;
@@ -85,8 +85,8 @@ public class UserEntity {
      * 证书凭证
      */
     public String getCredentialsSalt() {
-        if (userNumber != null && salt != null) {
-            return userNumber + salt;
+        if (code != null && salt != null) {
+            return code + salt;
         }
         return null;
     }

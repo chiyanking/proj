@@ -11,7 +11,6 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.apache.shiro.util.ByteSource;
-import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
@@ -77,7 +76,5 @@ public class DefaultRealm extends AuthorizingRealm {
                 user.getPassword(),
                 ByteSource.Util.bytes(user.getCredentialsSalt()),
                 getName());
-
-        return null;
     }
 }
