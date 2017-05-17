@@ -63,17 +63,16 @@
 
     <!-- MyBatis SqlSessionFactoryBean 配置 -->
     <!-- 注意：这里使用的是MP的MybatisSqlSessionFactoryBean，而不是Mybatis的，因为MP需要进行相应代理 -->
-    <bean id="sqlSessionFactory"
-          class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
         <!-- 配置数据源 -->
         <property name="dataSource" ref="dataSource"/>
         <!-- 配置Mybatis配置文件 -->
         <property name="configLocation" value="classpath:config/mybatis-config.xml"/>
         <!-- 配置别名包路径 -->
-        <property name="typeAliasesPackage" value="com.pussinboots.morning.cms.modules"/>
+        <!--<property name="typeAliasesPackage" value="com.wtk.mapper"/>-->
         <!-- 配置Mapper扫描路径（IDEA系列编辑器需要特别注意，因为IDEA的设置问题，src中的xml文件是不会被编译的，如果放在src中可能会报错，解决办法详见
-            常用问题-Invalid bound statement (not found) 错误如何解决?） -->
-        <property name="mapperLocations" value="classpath:/mybatis/**/*.xml"/>
+                    常用问题-Invalid bound statement (not found) 错误如何解决?） -->
+        <property name="mapperLocations" value="classpath:com/wtk/**/*.xml"/>
         <!-- 插件配置项 -->
         <property name="plugins">
             <array>
@@ -97,13 +96,20 @@
         <!-- Oracle需要添加该项 -->
         <!-- <property name="dbType" value="oracle" /> -->
         <!-- 全局表为下划线命名设置 true -->
-        <!-- <property name="dbColumnUnderline" value="true" /> -->
+        <property name="dbColumnUnderline" value="true"/>
     </bean>
 
     <!-- MyBatis 动态实现:DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 对Dao 接口动态实现，需要知道接口在哪 -->
-        <property name="basePackage" value="com.pussinboots.morning.cms.modules.*.mapper"/>
+        <property name="basePackage" value="com.wtk.mapper"/>
     </bean>
 
+    <bean class="com.baomidou.mybatisplus.spring.MybatisMapperRefresh">
+        <constructor-arg name="sqlSessionFactory" ref="sqlSessionFactory"/>
+        <constructor-arg name="mapperLocations" value="classpath:com/wtk/**/*.xml"/>
+        <constructor-arg name="delaySeconds" value="10"/>
+        <constructor-arg name="sleepSeconds" value="20"/>
+        <constructor-arg name="enabled" value="true"/>
+    </bean>
 </beans>

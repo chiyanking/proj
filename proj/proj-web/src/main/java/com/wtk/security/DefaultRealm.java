@@ -1,3 +1,4 @@
+/*
 package com.wtk.security;
 
 import com.wtk.enums.UserStatusEnum;
@@ -17,9 +18,37 @@ import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
 
+*/
 /**
  * Created by kingdom on 2017/5/12.
- */
+ * <p>
+ * 用户登录使用
+ *
+ * @param authenticationToken
+ * @return
+ * @throws AuthenticationException
+ * <p>
+ * 用户登录使用
+ * @param authenticationToken
+ * @return
+ * @throws AuthenticationException
+ * <p>
+ * 用户登录使用
+ * @param authenticationToken
+ * @return
+ * @throws AuthenticationException
+ * <p>
+ * 用户登录使用
+ * @param authenticationToken
+ * @return
+ * @throws AuthenticationException
+ * <p>
+ * 用户登录使用
+ * @param authenticationToken
+ * @return
+ * @throws AuthenticationException
+ *//*
+
 @Component("DefaultRealm")
 public class DefaultRealm extends AuthorizingRealm {
 
@@ -28,7 +57,7 @@ public class DefaultRealm extends AuthorizingRealm {
 
     protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principalCollection) {
         String username = (String) principalCollection.getPrimaryPrincipal();
-        UserEntity admin = userService.getUser(username);
+        User admin = userService.getUser(username);
         Set<RoleEntity> roleSet = userService.getRoles();
         if (roleSet != null) {
             //获取角色权限
@@ -52,17 +81,19 @@ public class DefaultRealm extends AuthorizingRealm {
         return null;
     }
 
-    /**
-     * 用户登录使用
-     *
-     * @param authenticationToken
-     * @return
-     * @throws AuthenticationException
-     */
+    */
+/**
+ * 用户登录使用
+ *
+ * @param authenticationToken
+ * @return
+ * @throws AuthenticationException
+ *//*
+
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         // 获取基于用户名和密码的令牌：实际上这个authcToken是从LoginController里面currentUser.login(token)传过来的
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        UserEntity user = userService.selectByLoginName(token.getUsername());
+        User user = userService.selectByLoginName(token.getUsername());
 
         if (user == null || user.getEmailIsActive().equals(UserStatusEnum.NONACTIVATED.getValue())) {
             throw new UnknownAccountException();// 没找到帐号或者邮箱未被激活
@@ -78,3 +109,4 @@ public class DefaultRealm extends AuthorizingRealm {
                 getName());
     }
 }
+*/

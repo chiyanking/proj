@@ -12,4 +12,15 @@
         <version>1.0-SNAPSHOT</version>
         <relativePath>../</relativePath>
     </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId> <!--jackson json:高性能的JSON处理 -->
+        </dependency>
+    </dependencies>
 </project>
