@@ -4,7 +4,6 @@ import VueResource from 'vue-resource';
 import {Notification} from 'element-ui';
 Vue.use(Vuex);
 Vue.use(VueResource);
-// Vue.use(Notification);
 const state = {
   enterprise: {
     id: undefined,

@@ -10,9 +10,10 @@
     "e2e": "node test/e2e/runner.js"
   },
   "dependencies": {
+    "jquery": "^2.2.4",
     "vue": "^2.1.6",
-    "vue-template-compiler": "^2.1.6",
-    "jquery": "^2.2.4"
+    "vue-multiselect": "^1.1.4",
+    "vue-template-compiler": "^2.1.6"
   },
   "devDependencies": {
     "autoprefixer": "^6.4.0",

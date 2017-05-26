@@ -11,12 +11,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.2.3/velocity.min.js"></script>
 </head>
 <body>
-  <div id="app">
+<div id="app">
   <!-- 路由出口 -->
   <!-- 路由匹配到的组件将渲染在这里 -->
-  <router-view name="header"></router-view>
-  <router-view></router-view>
-  <router-view name="footer"></router-view>
+  <router-view class="view-header" name="header"></router-view>
+  <router-view class="view-Left" name="left"></router-view>
+  <router-view class="view-content"></router-view>
+  <router-view class="view-footer" name="footer"></router-view>
 </div>
 </body>
 </html>

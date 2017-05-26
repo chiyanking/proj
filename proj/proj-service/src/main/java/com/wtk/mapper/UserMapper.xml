@@ -3,7 +3,7 @@
 <mapper namespace="com.wtk.mapper.UserMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.wtk.model.User">
+    <resultMap id="BaseResultMap" type="com.wtk.model.User" >
         <id column="id" property="id"/>
         <result column="user_number" property="userNumber"/>
         <result column="user_name" property="userName"/>

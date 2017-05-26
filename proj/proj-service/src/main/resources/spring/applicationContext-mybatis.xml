@@ -17,8 +17,7 @@
     <tx:annotation-driven transaction-manager="transactionManager"/>
 
     <!-- 数据源配置, 使用 BoneCP 数据库连接池 -->
-    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
-          init-method="init" destroy-method="close">
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" init-method="init" destroy-method="close">
         <!-- 数据源驱动类可不写，Druid默认会自动根据URL识别DriverClass -->
         <property name="driverClassName" value="${jdbc.driver}"/>
 
@@ -97,12 +96,18 @@
         <!-- <property name="dbType" value="oracle" /> -->
         <!-- 全局表为下划线命名设置 true -->
         <property name="dbColumnUnderline" value="true"/>
+        <property name="logicDeleteValue" value="0"/>
+        <property name="logicNotDeleteValue" value="1"/>
+        <property name="sqlInjector" ref="logicSqlInjector"/>
     </bean>
 
     <!-- MyBatis 动态实现:DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 对Dao 接口动态实现，需要知道接口在哪 -->
         <property name="basePackage" value="com.wtk.mapper"/>
+    </bean>
+
+    <bean id="logicSqlInjector" class="com.baomidou.mybatisplus.mapper.LogicSqlInjector">
     </bean>
 
     <bean class="com.baomidou.mybatisplus.spring.MybatisMapperRefresh">

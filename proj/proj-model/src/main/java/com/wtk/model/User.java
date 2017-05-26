@@ -1,7 +1,7 @@
 package com.wtk.model;
 
-import com.baomidou.mybatisplus.annotations.TableField;
 import com.baomidou.mybatisplus.annotations.TableId;
+import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -84,6 +84,7 @@ public class User {
     /**
      * 是否有效 0,删除 1,正常
      */
+    @TableLogic(value = "1", delval = "0")
     private Integer isValid;
     /**
      * 创建人ID
@@ -102,163 +103,184 @@ public class User {
      */
     private String modifier;
 
+
     public Long getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public User setId(Long id) {
         this.id = id;
+        return this;
     }
 
     public String getStaffCode() {
         return staffCode;
     }
 
-    public void setStaffCode(String staffCode) {
+    public User setStaffCode(String staffCode) {
         this.staffCode = staffCode;
+        return this;
     }
 
     public Long getPointId() {
         return pointId;
     }
 
-    public void setPointId(Long pointId) {
+    public User setPointId(Long pointId) {
         this.pointId = pointId;
+        return this;
     }
 
     public String getUserName() {
         return userName;
     }
 
-    public void setUserName(String userName) {
+    public User setUserName(String userName) {
         this.userName = userName;
+        return this;
     }
 
     public String getRealName() {
         return realName;
     }
 
-    public void setRealName(String realName) {
+    public User setRealName(String realName) {
         this.realName = realName;
+        return this;
     }
 
     public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    public User setPassword(String password) {
         this.password = password;
+        return this;
     }
 
     public String getPhone() {
         return phone;
     }
 
-    public void setPhone(String phone) {
+    public User setPhone(String phone) {
         this.phone = phone;
+        return this;
     }
 
     public Long getPositionId() {
         return positionId;
     }
 
-    public void setPositionId(Long positionId) {
+    public User setPositionId(Long positionId) {
         this.positionId = positionId;
+        return this;
     }
 
     public String getIdCard() {
         return idCard;
     }
 
-    public void setIdCard(String idCard) {
+    public User setIdCard(String idCard) {
         this.idCard = idCard;
+        return this;
     }
 
     public String getAddress() {
         return address;
     }
 
-    public void setAddress(String address) {
+    public User setAddress(String address) {
         this.address = address;
+        return this;
     }
 
     public Date getEntryDate() {
         return entryDate;
     }
 
-    public void setEntryDate(Date entryDate) {
+    public User setEntryDate(Date entryDate) {
         this.entryDate = entryDate;
+        return this;
     }
 
     public Date getQuitDate() {
         return quitDate;
     }
 
-    public void setQuitDate(Date quitDate) {
+    public User setQuitDate(Date quitDate) {
         this.quitDate = quitDate;
+        return this;
     }
 
     public Date getCreateDate() {
         return createDate;
     }
 
-    public void setCreateDate(Date createDate) {
+    public User setCreateDate(Date createDate) {
         this.createDate = createDate;
+        return this;
     }
 
     public Date getModifyDate() {
         return modifyDate;
     }
 
-    public void setModifyDate(Date modifyDate) {
+    public User setModifyDate(Date modifyDate) {
         this.modifyDate = modifyDate;
+        return this;
     }
 
     public Integer getUserStatus() {
         return userStatus;
     }
 
-    public void setUserStatus(Integer userStatus) {
+    public User setUserStatus(Integer userStatus) {
         this.userStatus = userStatus;
+        return this;
     }
 
     public Integer getIsValid() {
         return isValid;
     }
 
-    public void setIsValid(Integer isValid) {
+    public User setIsValid(Integer isValid) {
         this.isValid = isValid;
+        return this;
     }
 
     public Long getCreatorId() {
         return creatorId;
     }
 
-    public void setCreatorId(Long creatorId) {
+    public User setCreatorId(Long creatorId) {
         this.creatorId = creatorId;
+        return this;
     }
 
     public String getCreator() {
         return creator;
     }
 
-    public void setCreator(String creator) {
+    public User setCreator(String creator) {
         this.creator = creator;
+        return this;
     }
 
     public Long getModifierId() {
         return modifierId;
     }
 
-    public void setModifierId(Long modifierId) {
+    public User setModifierId(Long modifierId) {
         this.modifierId = modifierId;
+        return this;
     }
 
     public String getModifier() {
         return modifier;
     }
 
-    public void setModifier(String modifier) {
+    public User setModifier(String modifier) {
         this.modifier = modifier;
+        return this;
     }
 }

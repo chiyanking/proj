@@ -1,5 +1,7 @@
 package com.wtk.service;
 
+import com.alibaba.dubbo.common.logger.Logger;
+import com.alibaba.dubbo.common.logger.LoggerFactory;
 import org.junit.runner.RunWith;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
@@ -17,4 +19,6 @@ public class TestBase {
     @PropertySource("classpath:properties/jdbc.properties")
     static class AppConfiguration {
     }
+
+    public static final Logger logger = LoggerFactory.getLogger(TestBase.class);
 }

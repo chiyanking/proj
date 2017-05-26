@@ -1,7 +1,7 @@
 package com.wtk.service;
 
+import com.baomidou.mybatisplus.mapper.EntityWrapper;
 import com.baomidou.mybatisplus.plugins.Page;
-import com.wtk.mapper.UserMapper;
 import com.wtk.model.User;
 import org.junit.Test;
 
@@ -20,13 +20,11 @@ public class UserServiceTest extends TestBase {
 
     @Test
     public void getUser() throws Exception {
-        User user = userService.selectById(1l);
-        Map map = new HashMap<>();
-        map.put("point_id", "1");
-        List list = userService.selectByMap(map);
-        Page page = new Page();
-        page.setSize(10);
-        System.out.println("");
+        logger.debug("打印启动");
+//        boolean delete = userService.delete(new EntityWrapper<User>(new User().setId(7l)));
+//        System.out.println(delete);
+        boolean b1 = userService.deleteById(8l);
+        System.out.println(b1);
     }
 
     @Test
