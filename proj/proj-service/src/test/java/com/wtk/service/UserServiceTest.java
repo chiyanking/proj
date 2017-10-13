@@ -23,8 +23,12 @@ public class UserServiceTest extends TestBase {
         logger.debug("打印启动");
 //        boolean delete = userService.delete(new EntityWrapper<User>(new User().setId(7l)));
 //        System.out.println(delete);
-        boolean b1 = userService.deleteById(8l);
-        System.out.println(b1);
+
+        User user = userService.selectById(8l);
+        User user1 = user.setId(null);
+        user1.setUserName("1231231234");
+        boolean insert = userService.insert(user1);
+        System.out.println(user);
     }
 
     @Test

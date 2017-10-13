@@ -1,7 +1,5 @@
 package com.wtk.service;
 
-import com.github.stuxuhai.jpinyin.PinyinException;
-import com.github.stuxuhai.jpinyin.PinyinFormat;
 import net.sourceforge.pinyin4j.PinyinHelper;
 import net.sourceforge.pinyin4j.format.HanyuPinyinCaseType;
 import net.sourceforge.pinyin4j.format.HanyuPinyinOutputFormat;
@@ -59,7 +57,7 @@ public class pingyinTest {
         }
     }
 
-    public static void main(String[] args) throws PinyinException {
+    public static void main(String[] args) {
 
 //        String str = "中国银行长沙分行";
         String str = "百夫长";

@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotations.TableLogic;
 import com.baomidou.mybatisplus.annotations.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import java.math.BigDecimal;
 import java.util.Date;
 
 /**
@@ -102,6 +103,12 @@ public class User {
      * 修改人
      */
     private String modifier;
+
+    /**
+     * price
+     */
+
+    private BigDecimal price;
 
 
     public Long getId() {
@@ -281,6 +288,15 @@ public class User {
 
     public User setModifier(String modifier) {
         this.modifier = modifier;
+        return this;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public User setPrice(BigDecimal price) {
+        this.price = price;
         return this;
     }
 }
